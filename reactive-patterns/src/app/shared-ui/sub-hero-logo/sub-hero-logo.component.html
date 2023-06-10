@@ -1,0 +1,11 @@
+<div class="hero-message">
+  <div class="logo">
+    <div>
+      <img [src]="logoUrl" alt="Just Like People Logo" />
+    </div>
+  </div>
+  <!-- This component has two projection slots. The select value is how it knows what to render in which slot -->
+  <!-- If there are no select attributes, content is rendered in the order it is received until the slots are filled -->
+  <h2><ng-content select="[title]"></ng-content></h2>
+  <h3><ng-content select="[sub-title]"></ng-content></h3>
+</div>

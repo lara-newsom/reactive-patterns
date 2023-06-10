@@ -1,0 +1,115 @@
+<section class="main-content">
+  <app-breadcrumbs
+    [breadcrumbs]="breadcrumbs"
+  ></app-breadcrumbs>
+  
+  <div class="contact-wrapper">
+    <div class="image-wrapper">
+      <img src="../../assets/images/contact.jpg" alt="couple of kids in animal costumes" />
+    </div>
+    <!-- we only want to render this element and it's children if the form has not been submitted -->
+    <div *ngIf="!submitted; else formSubmitted" class="form-wrapper">
+      <h3>We'd Love to Hear from You</h3>
+      <p>Please fill out the form below to let us know how we can help.</p>
+      <fieldset>
+        <!-- The form id is contactForm which is set equal to ngForm -->
+        <form #contactForm="ngForm">
+          <div class="form-group">
+            <label for="name">Full name</label>
+            <!-- Use two way binding to bind the model.fullName property -->
+            <input
+              type="text"
+              id="name"
+              [(ngModel)]="model.fullName"
+              name="full_name"
+              value=""
+              required
+              #full_name="ngModel"
+            />
+
+            <!-- We are using the structural directive *ngIf to determine if this reminder should be shown -->
+            <div
+              *ngIf="full_name.invalid && full_name.touched"
+              class="alert alert-danger"
+            >Name is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email_address"
+              [(ngModel)]="model.email"
+              value=""
+              required
+              #email_address="ngModel"
+            />
+            <div
+              *ngIf="email_address.invalid && email_address.touched"
+              class="alert alert-danger"
+            >Email is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone_number"
+              [(ngModel)]="model.phone"
+              value=""
+            />
+          </div>
+          <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea
+              id="comment"
+              name="text_comment"
+              [(ngModel)]="model.comment"
+              required
+              #text_comment="ngModel"
+            ></textarea>
+            <div
+              *ngIf="text_comment.invalid && text_comment.touched"
+              class="alert alert-danger"
+            >Comment is required
+            </div>
+          </div>
+
+<!-- We are checking if the form has any invalid fields before allowing the button to be clicked -->
+          <button
+            [disabled]="contactForm.invalid"
+            mat-raised-button
+            type="submit"
+            name="submit"
+            id="submit"
+            (click)="submitForm(model)"
+          >Submit
+          </button>
+        </form>
+      </fieldset>
+    </div>
+  </div>
+</section>
+
+<!-- Once the form has been submitted, we will remove the form from the DOM and render this message -->
+<ng-template #formSubmitted>
+  <div
+    class="form-wrapper"
+    *ngIf="!loading; else submitting"
+  >
+    <h3>Thank You for Your Message</h3>
+    <p>It may take up to 24 hours for someone to respond.</p>
+    <button mat-raised-button (click)="clearForm()">Send Another</button>
+  </div>
+</ng-template>
+
+<ng-template #submitting>
+  <div
+  class="form-wrapper-spinner"
+>
+  <mat-spinner></mat-spinner>
+</div>
+</ng-template>
+

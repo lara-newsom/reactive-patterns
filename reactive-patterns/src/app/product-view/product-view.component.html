@@ -1,0 +1,17 @@
+<section class="main-content">
+<!-- The breadcrumbs component has an input property called breadcrumbs -->
+<!-- We are using [ property binding ] to pass the component property of breadcrumbs through the input -->
+  <app-breadcrumbs
+    [breadcrumbs]="breadcrumbs"
+  ></app-breadcrumbs>
+  <div class="category-wrapper">
+    <div class="side-nav-wrapper">
+      <app-side-menu></app-side-menu>
+    </div>
+    <div class="detail-wrapper">
+<!-- Router Outlet is where the router renders content on the page -->
+<!-- This is a nested Router Outlet and the product view model has its own forChild route declaration -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</section>

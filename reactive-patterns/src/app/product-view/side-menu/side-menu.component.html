@@ -1,0 +1,27 @@
+<div class="side-nav">
+<!-- The routerLink directive allows us to change the route from the template -->
+<!-- The queryParams directive allows us to add query params to the url -->
+<!-- The routerLinkActive directive allows us to set a style for the option that exactly matches the current activated route -->
+  <button
+    *ngFor="let product of products$ | async"
+    class="image-button"
+    [routerLink]="['detail']"
+    [queryParams]="{productId: product.id}"
+    routerLinkActive="router-link-active"
+  >
+<!-- TODO: Signals Template -->
+  <!-- <button
+    *ngFor="let product of products()"
+    class="image-button"
+    [routerLink]="['detail']"
+    [queryParams]="{productId: product.id}"
+    routerLinkActive="router-link-active"
+  > -->
+
+  <!-- We are using [attribute binding] to pass dynamic values to the img tag -->
+    <img
+      [src]="product.thumb"
+      [alt]="product.title"
+    />
+  </button>
+</div>

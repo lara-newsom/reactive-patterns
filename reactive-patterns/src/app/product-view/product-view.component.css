@@ -1,0 +1,23 @@
+.category-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.side-nav-wrapper {
+  flex-grow: 1;
+  max-width: 270px;
+  max-height: 750px;
+}
+
+.side-nav-wrapper h3 {
+  margin: 10px;
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.detail-wrapper {
+  flex-grow: 2;
+  margin: 10px;
+  max-width: 1000px;
+}

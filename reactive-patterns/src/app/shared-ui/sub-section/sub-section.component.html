@@ -1,0 +1,17 @@
+<section>
+  <div class="sub-section">
+<!-- We are first subscribing to the featured$ observable with the async pipe -->
+<!-- then we are iterating over the values and rendering one card per value -->
+    <app-card
+      *ngFor="let product of featured$ | async"
+      [product]="product"
+    >
+    </app-card>
+<!-- TODO: Signals Template -->
+    <!-- <app-card
+      *ngFor="let product of featured()"
+      [product]="product"
+    >
+    </app-card> -->
+  </div>
+</section>

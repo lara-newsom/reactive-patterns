@@ -1,0 +1,32 @@
+.hero-message {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: -40px;
+}
+
+.hero-message .logo {
+  align-items: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.hero-message h2 {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 18px 0;
+  padding: 0;
+  text-transform: none;
+}
+
+.focused-message p {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+}

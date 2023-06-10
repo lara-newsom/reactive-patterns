@@ -1,0 +1,89 @@
+<header class="site-header">
+<!-- Clickable Site Logo -->
+  <h1>
+    <button
+      [routerLink]="['/' + ROUTE_TOKENS.home]"
+      aria-label="home"
+    ><img src="../../assets/images/justlikepeople.png" alt="Just Like People Logo" /></button>
+  </h1>
+
+
+<!-- Elements prefixed with 'mat' are Angular Material Elements -->
+  <mat-toolbar>
+    <mat-toolbar-row>
+
+<!-- Hamburger menu that is displayed on screens smaller than 695px wide -->
+      <button
+        class="responsive-menu"
+        mat-button
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+
+<!-- Main menu that is displayed on screens wider than 695px -->
+      <div
+        class="responsive-menu"
+      >
+        <nav>
+          <ul>
+            <li>
+              <button
+                class="menu-item"
+                mat-button
+                [matMenuTriggerFor]="menu"
+              >Products <span>&#8964;</span></button>
+              <mat-menu class="menu-dropdown" #menu="matMenu">
+                <button
+                  *ngFor="let link of LINKS"
+                  mat-menu-item
+                  [routerLink]="['/' + ROUTE_TOKENS.products, link.category]"
+                  routerLinkActive="router-link-active"
+                >{{ link.description }}</button>
+              </mat-menu>
+            </li>
+            <li>
+              <button
+                [routerLink]="[ '/' + ROUTE_TOKENS.contact]"
+                routerLinkActive="router-link-active"
+                class="menu-item"
+                mat-button
+              >Contact</button></li>
+          </ul>
+        </nav>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</header>
+<ng-container *ngIf="selectedProduct$ | async as selectedProduct">
+<!-- TODO: Signals Template -->
+<!-- <ng-container *ngIf="selectedProduct() as selectedProduct"> -->
+  <div
+  *ngIf="selectedProduct.onSale"
+    class="sale-banner"
+  >
+    <span>{{ selectedProduct.title }}</span>
+    <span>{{ '  On Sale Now!!!' | uppercase }}</span>
+  </div>
+</ng-container>
+
+<mat-sidenav-container>
+<!-- responsive side menu that is only displayed on screens 695px wide and smaller -->
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <button (click)="sidenav.toggle()" mat-menu-item>Close</button>
+      <button mat-menu-item (click)="sidenav.toggle()">Contact</button>
+      <button
+        *ngFor="let link of LINKS"
+        mat-menu-item
+        [routerLink]="['/' + ROUTE_TOKENS.products, link.category]"
+        routerLinkActive="router-link-active"
+      >{{ link.description }}</button>
+    </mat-nav-list>
+  </mat-sidenav>
+
+<!-- Because of the responsive menu, we are using this container for our main content -->
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

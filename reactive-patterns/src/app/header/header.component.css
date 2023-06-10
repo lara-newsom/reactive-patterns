@@ -1,0 +1,118 @@
+.site-header {
+  width: 100%;
+  min-width: 480px;
+  background-color: rgb(71, 33, 22);
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sale-banner {
+  padding: 10px 5px;
+  background-color: rgb(5, 37, 125);
+  padding-left: 50px;
+  text-align: center;
+  color: yellow;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 2rem;
+}
+
+.sale-banner span:last-of-type {
+  padding-left: 20px;
+  color: white;
+}
+
+mat-toolbar mat-toolbar-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.site-header h1 {
+  margin: 0;
+  padding: 20px;
+  max-width: 300px;
+  min-width: 200px;
+}
+
+h1 button img {
+  width: 100%;
+}
+
+h1 button {
+  border: none;
+  background-color: rgba(71, 33, 22, 1);
+  cursor: pointer;
+}
+
+.site-header nav ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.site-header nav ul li button{
+  color: white;
+  display: block;
+  font-weight: 600;
+  margin-left: 30px;
+  position: relative;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.site-header .header-icons ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.site-header .header-icons ul li {
+  margin-left: 30px;
+}
+
+.menu-item span {
+  top: -5px;
+  position: relative;
+}
+
+.mat-icon {
+  color: white;
+}
+
+.mat-toolbar {
+  padding-right: 20px;
+  background-color: rgba(71, 33, 22, 1);
+  color: white;
+}
+
+.router-link-active {
+  background-color:lightcyan;
+}
+
+.mat-toolbar .router-link-active {
+  background-color: rgba(71, 33, 22, 1);
+}
+
+button.responsive-menu {
+  display: block;
+}
+
+.site-header .mat-toolbar-row div.responsive-menu {
+  display: none;
+}
+
+@media only screen and (min-width: 695px) {
+  button.responsive-menu {
+    display: none;
+  }
+  .site-header .mat-toolbar-row div.responsive-menu {
+    width: 100%;
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

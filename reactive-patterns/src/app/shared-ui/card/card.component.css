@@ -1,0 +1,36 @@
+button.product {
+  background-color: rgba(232, 249, 253, 1);
+  border: none;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 10px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+.product img {
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.add-to-cart {
+  flex-grow: 1;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(153, 191, 251, 1);
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding-top: 10px;
+}
+
+.add-to-cart p {
+  width: 100%;
+  font-size: 1.4rem;
+}

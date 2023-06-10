@@ -1,0 +1,25 @@
+<div class="button-row">
+  <!-- The mat-button directive is adding additional styling and animations to our buttons -->
+  <button
+    [routerLink]="['/' + ROUTE_TOKENS.home]"
+    mat-button
+  >Home</button>
+  <span>>></span>
+  <ng-container *ngFor="let breadcrumb of breadcrumbs">
+    <!-- The last breadcrumb will not be routeable since it represents the current route -->
+    <!-- We set it as an empty string in the component which will evaluate as a falsy value in *ngIf -->
+    <!-- We are leveraging the else syntax to tell the template what to render if the expression is falsy -->
+    <button
+      *ngIf="breadcrumb.routerLink; else noLink"
+      [routerLink]=breadcrumb.routerLink
+      mat-button
+    >{{ breadcrumb.display }}</button>
+    <!-- This is the template that will render if the routerLink property is an empty string -->
+    <ng-template #noLink>
+      <button
+      mat-button
+    >{{ breadcrumb.display }}</button>
+    </ng-template>
+    <span>>></span>
+  </ng-container>
+</div>
