@@ -1,12 +1,6 @@
-<div class="detail" *ngIf="selectedProduct$ | async as selectedProduct">
-<!-- TODO: Signals Template -->
-<!--<div class="detail" *ngIf="selectedProduct() as selectedProduct">-->
-
-
-<!-- We are using the {{ string interpolation }} syntax to render the product title in the h3 element -->
+<div class="detail" *ngIf="selectedProduct() as selectedProduct">
   <h3>{{ selectedProduct.title }}</h3>
   <div class="image-wrapper">
-<!-- We are using the [ attribute binding ] syntax to let the template know that we are passing a dynamic value -->
     <img [src]="selectedProduct.image" [alt]="selectedProduct.title" />
     <div class="description">
       <p>{{ selectedProduct.description }}</p>

@@ -10,10 +10,14 @@ import { ActivatedRoute } from '@angular/router';
   providedIn: 'root'
 })
 export class ProductSignalsService {
+  readonly selectedCategory = signal<string>(Category.ALL);
+
+
+
+
   private readonly activatedRoute = inject(ActivatedRoute);
 
 
-  readonly selectedCategory = signal<string>(Category.ALL);
   readonly selectedProductId = signal<string | undefined>(undefined);
 
   // Http requests are async and return an observable
@@ -27,7 +31,8 @@ export class ProductSignalsService {
       return this.products();
     }
 
-    return this.products().filter((product: Product) => product.category === this.selectedCategory());
+    return this.products().filter((product: Product) =>
+      product.category === this.selectedCategory());
   });
 
   readonly selectedProduct = computed(() => {

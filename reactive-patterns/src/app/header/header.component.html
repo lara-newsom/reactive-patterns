@@ -55,13 +55,8 @@
     </mat-toolbar-row>
   </mat-toolbar>
 </header>
-<ng-container *ngIf="selectedProduct$ | async as selectedProduct">
-<!-- TODO: Signals Template -->
-<!-- <ng-container *ngIf="selectedProduct() as selectedProduct"> -->
-  <div
-  *ngIf="selectedProduct.onSale"
-    class="sale-banner"
-  >
+<ng-container *ngIf="selectedProduct() as selectedProduct">
+  <div *ngIf="selectedProduct.onSale" class="sale-banner">
     <span>{{ selectedProduct.title }}</span>
     <span>{{ '  On Sale Now!!!' | uppercase }}</span>
   </div>

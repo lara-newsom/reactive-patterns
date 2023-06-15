@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { ProductSignalsService } from 'src/app/services/product-signals.service';
 
@@ -8,6 +8,21 @@ import { ProductSignalsService } from 'src/app/services/product-signals.service'
   styleUrls: ['./side-menu.component.css']
 })
 export class SideMenuComponent {
+  @Output() selectedProduct = new EventEmitter<string>();
+
+  selectProduct(id: string) {
+    this.selectedProduct.emit(id);
+  }
+
+
+
+
+
+
+
+
+
+
   private readonly productService = inject(ProductService);
   // TODO: signals service comment out productService and uncomment the next line
   // private readonly productsSignals = inject(ProductSignalsService)
